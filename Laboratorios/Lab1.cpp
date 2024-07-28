@@ -72,9 +72,36 @@ void tienda_productos()
     cout<<"Porcentaje de estuiantes mayores de 25 anhos -> "<<mayor<<"%"<<endl;
 }
 
+
+void menu()
+{
+    int opc=0;
+    do
+    {
+        cout<<"\n_______Menu_______\n"<<
+        "\n1. Informacion estudiantil"<<
+        "\n2. Numero perfecto"<<
+        "\n3. Restaurante universitario"<<
+        "\n4. Salir"<<endl;
+
+        opc = stoi(leer("Ingrese una opcion -> "));
+        switch(opc)
+        {
+            case 1: tienda_productos();
+                    break;
+            case 2: break;
+            case 3: break;
+            case 4: cout<<"Saliendo del menu .....\n";
+                    break;
+            default: cout<<"Opcion incorrecta\n";
+        }
+    }while(opc != 4);
+
+
+}
 int main()
 {
-    tienda_productos();
+    menu();
     return 0;
 }
 
