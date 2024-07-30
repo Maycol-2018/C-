@@ -72,6 +72,37 @@ void tienda_productos()
     cout<<"Porcentaje de estuiantes mayores de 25 anhos -> "<<mayor<<"%"<<endl;
 }
 
+void numeroPerfecto()
+{
+    int num, sumatoria;
+    cout<<"_____Numero Perfecto_____\n\n";
+    do
+    {
+        num = stoi(leer("Ingrese un numero: "));
+        if(num<0)
+        {
+            cout<<"El numero debe ser mayor a cero"<<endl;
+        }
+    }while (num<0);
+    
+    sumatoria = 0;
+    for(int i=1; i<num; i++)
+    {
+        if(num%i==0)
+        sumatoria += i;
+    }
+
+    cout<<"Suma de los divisores del "<<num<<" -> "<<sumatoria<<"\n";
+    if(sumatoria == num)
+    {
+        cout<<"El numero "<<num<<" es un numero Perfecto"<<endl;
+    }
+    else
+    {
+        cout<<"El numero "<<num<<" NO es un numero Perfecto"<<endl;
+    }
+}
+
 
 void menu()
 {
@@ -89,7 +120,8 @@ void menu()
         {
             case 1: tienda_productos();
                     break;
-            case 2: break;
+            case 2: numeroPerfecto();
+                    break;
             case 3: break;
             case 4: cout<<"Saliendo del menu .....\n";
                     break;
