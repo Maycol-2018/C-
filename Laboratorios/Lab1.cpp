@@ -103,6 +103,54 @@ void numeroPerfecto()
     }
 }
 
+void encuesta()
+{
+    int cal;
+    int uno=0, dos=0, tres=0, cuatro=0, cinco=0, seis=0, siete=0, ocho=0, nueve=0, diez=0;
+    int k=1;
+    string salida="";
+    cout<<"\n*****Bienvenido a la encuesta del restaurante universitario*****\n\n";
+    do
+    { 
+        cout<<"__Estudiante "<<k<<"__"<<endl;
+        cal=stoi(leer("Digite la calificacion: "));
+        cout<<"\n";
+
+        switch(cal)
+        {
+        case 0: cout<<"Saliendo de la encuesta...."<<endl; break;
+        case 1: uno++; k++; break;
+        case 2: dos++; k++; break;
+        case 3: tres++; k++; break;
+        case 4: cuatro++; k++; break;
+        case 5: cinco++; k++; break;
+        case 6: seis++; k++; break;
+        case 7: siete++; k++; break;
+        case 8: ocho++; k++; break;
+        case 9: nueve++; k++; break;
+        case 10: diez++; k++; break;
+        default: cout<<"El valor no se encuentra en el rango de calificacion 1-10. Digite 0 para salir"<<endl;
+            break;
+        }
+    } while (cal!=0);
+
+    int arreglo[]={uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,diez};
+
+    cout<<"Cantidad de encuestados -> "<<k-1<<endl;
+    cout<<"****Frecuencia de calificaciones****"<<
+    "\nCalificacion\tNum-Est\t\tHistograma\n";
+
+    for(int i=0; i<10; i++)
+    {
+        salida="";
+        for(int j=0; j<arreglo[i]; j++)
+        {
+            salida+="*";
+        }
+        cout<<i+1<<"\t\t"<<arreglo[i]<<"\t\t"<<salida<<endl;
+    }
+}
+
 
 void menu()
 {
@@ -122,15 +170,15 @@ void menu()
                     break;
             case 2: numeroPerfecto();
                     break;
-            case 3: break;
+            case 3: encuesta();
+                    break;
             case 4: cout<<"Saliendo del menu .....\n";
                     break;
             default: cout<<"Opcion incorrecta\n";
         }
     }while(opc != 4);
-
-
 }
+
 int main()
 {
     menu();
